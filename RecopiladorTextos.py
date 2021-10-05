@@ -859,6 +859,27 @@ def main():
     #  lambda con un parametro inservible
     #  lambda llamara a la funcion salir de la interfaz
     marco.bind('<Escape>', lambda dummy:outGUI())
+    # se asigna un evento Control-u de parámetro perdido a través de una funcion
+    #  lambda con un parametro inservible
+    #  lambda llamara al sistema operativo para que ejecute el comando explorer
+    #   explorer llamara al path absoluto para abrir el manual de usuario final
+    marco.bind('<Control-u>', lambda dummy:os.system("explorer " +
+        os.path.dirname(os.path.abspath(__file__)) +
+        "\\Manuales Temporales\\Manual de usuario final.pdf"))
+    # se asigna un evento Control-g de parámetro perdido a través de una funcion
+    #  lambda con un parametro inservible
+    #  lambda llamara al sistema operativo para que ejecute el comando start
+    #   start redirigira a la carpeta de video-guias
+    marco.bind('<Control-g>', lambda dummy:os.system("start " +
+        "https://drive.google.com/drive/folders/1ZuXA-" +
+        "FNLElBZdFk2MgIxdEgW65oZMyuv?usp=sharing"))
+    # se asigna un evento Control-e de parámetro perdido a través de una funcion
+    #  lambda con un parametro inservible
+    #  lambda llamara al sistema operativo para que ejecute el comando start
+    #   start redirigira a la nube de entrega
+    marco.bind('<Control-e>', lambda dummy:os.system("start " +
+        "https://drive.google.com/drive/folders/1ylcTjKPp2N0bpP4-" +
+        "epVAtzv0vy_vvE2F?usp=sharing"))
 
     mn = tk.Menu(marco)
     # se genera flMn, un menu
@@ -886,8 +907,8 @@ def main():
     hlMn =tk.Menu(mn, tearoff=0)
     # agrega las funciones aflMn
     hlMn.add_command(label="Manual de usuario final",command=lambda:os.system(
-        "start https://docs.google.com/document/d/1Q3O7HAb-" +
-        "6hBcFw22tDCAb8F0lCMEPYfjSdyu9jzLuBU/edit?usp=sharing"))
+        "explorer " + os.path.dirname(os.path.abspath(__file__)) +
+        "\\Manuales Temporales\\Manual de usuario final.pdf"))
     hlMn.add_command(label="Manual del programador",command=lambda:os.system(
         "start https://docs.google.com/document/d/1rr5pqEPb6-" +
         "_vN4Fz2edDKf73rSZuU6FBGCbITYqAsGg/edit?usp=sharing"))
